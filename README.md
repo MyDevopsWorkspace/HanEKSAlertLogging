@@ -13,35 +13,35 @@ Repo to log EKS cluster alert status into dynamo db
 
 Terraform code in this repo will create the following resources in the region selected by the user.
 
-1.IAM policy
-2.IAM role
-3.Lambda function
-4.SNS Topic and subscription
-5.Dynamo db table
+      1.IAM policy
+      2.IAM role
+      3.Lambda function
+      4.SNS Topic and subscription
+      5.Dynamo db table
 
-Pre-Requisites for the User:
+**Pre-Requisites for the User:**
 
 
 1. IAM user should have the below required permission to create/destroy/update the resources
 
-IAM policy
-IAM role
-Lambda function
-SNS Topic and subscription
-Dynamo db table
+      IAM policy
+      IAM role
+      Lambda function
+      SNS Topic and subscription
+      Dynamo db table
 
 2. S3 bucket and Dynamo db table should be pre configured to store the remote state into s3 and lock configuration into dynamo db table.
    Update the new bucket name in ./backend_config/dev.conf file 
    Update the dynamodb table value in backend.tf file
    
-Running Instruction:
+**Running Instruction:**
 
 terraform init -backend-config ./backend_config/dev.conf
 terraform workspace new dev
 terraform workspace select dev
 terraform plan -var-file dev.tfvars -auto-approve
 
-Instruction to manage multiple environments:
+**Instruction to manage multiple environments:**
 
 Cosidering as an example to create resource for QA environment
 1. Create new configuration ./backend_config/dev.conf 
