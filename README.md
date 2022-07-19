@@ -24,11 +24,11 @@ Terraform code in this repo will create the following resources in the region se
 
 1. IAM user should have the below required permission to create/destroy/update the resources
 
-      IAM policy
-      IAM role
-      Lambda function
-      SNS Topic and subscription
-      Dynamo db table
+            IAM policy
+            IAM role
+            Lambda function
+            SNS Topic and subscription
+            Dynamo db table
 
 2. S3 bucket and Dynamo db table should be pre configured to store the remote state into s3 and lock configuration into dynamo db table.
    Update the new bucket name in ./backend_config/dev.conf file 
@@ -36,10 +36,10 @@ Terraform code in this repo will create the following resources in the region se
    
 **Running Instruction:**
 
-terraform init -backend-config ./backend_config/dev.conf
-terraform workspace new dev
-terraform workspace select dev
-terraform plan -var-file dev.tfvars -auto-approve
+            terraform init -backend-config ./backend_config/dev.conf
+            terraform workspace new dev
+            terraform workspace select dev
+            terraform plan -var-file dev.tfvars -auto-approve
 
 **Instruction to manage multiple environments:**
 
