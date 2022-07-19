@@ -50,8 +50,8 @@ Cosidering as an example to create resource for QA environment
       
 2.Running Instruction:
 
-terraform init -backend-config ./backend_config/QA.conf
-terraform workspace new QA
-terraform workspace select QA
-terraform plan -var-file QA.tfvars -auto-approve
+            terraform init -backend-config ./backend_config/QA.conf
+            terraform workspace new QA
+            terraform workspace select QA
+            terraform plan -var-file QA.tfvars -auto-approve
 
