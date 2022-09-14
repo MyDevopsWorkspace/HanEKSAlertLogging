@@ -29,3 +29,13 @@ locals {
     env = terraform.workspace
   }
 }
+
+data "template_file" "policy" {
+  template = "${file("./files/lambdarole_iam_policy.json")}"
+  vars = {
+    region = "${var.region}"
+    account_id = local.common_tags["account_id"]
+    cluster_tablename = "${var.cluster_tablename}"
+    function_name = "${var.function_name}"
+  }
+}

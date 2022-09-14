@@ -4,7 +4,7 @@
         {
             "Effect": "Allow",
             "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:eu-west-2:189161884001:*"
+            "Resource": "arn:aws:logs:${region}:${account_id}:*"
         },
         {
             "Effect": "Allow",
@@ -13,7 +13,7 @@
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "arn:aws:logs:eu-west-2:189161884001:log-group:/aws/lambda/Promolert:*"
+                "arn:aws:logs:${region}:${account_id}:log-group:/aws/lambda/${function_name}:*"
             ]
         },
         {
@@ -21,7 +21,7 @@
                 "dynamodb:PutItem"
             ],
             "Effect": "Allow",
-            "Resource": "arn:aws:dynamodb:eu-west-2:189161884001:table/EKS_cluster_monitoring"
+            "Resource": "arn:aws:dynamodb:${region}:${account_id}:table/${cluster_tablename}"
         },
         {
             "Effect": "Allow",
@@ -32,7 +32,7 @@
                 "logs:GetLogEvents"
             ],
             "Resource": [
-                "arn:aws:sns:eu-west-2:189161884001:*"
+                "arn:aws:sns:${region}:${account_id}:*"
             ]
         }
     ]

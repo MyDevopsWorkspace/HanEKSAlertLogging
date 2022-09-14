@@ -28,7 +28,7 @@ module "lambda_role" {
   description        = "IAM role for lambda"
   path               = "/instance_roles/"
   assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
-  policy             = file("./files/lambdarole_iam_policy.json")
+  policy             = "${data.template_file.policy.rendered}"
   max_session_duration = 7200
   tags= merge(tomap(local.common_tags),{Name="${var.function_name}_role"},{type = "ROLE"})
 }
