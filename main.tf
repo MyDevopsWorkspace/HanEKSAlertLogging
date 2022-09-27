@@ -23,7 +23,7 @@ module "dynamodb-table" {
 
 
 module "lambda_role" {
-  source = "git@github.com:myhanseencloud/terraform_modules.git//iamrole?ref=master"
+  source = "git@github.com:MyDevopsWorkspace/terramodules.git//iamrole?ref=master"
   name               = "${var.function_name}_role"
   description        = "IAM role for lambda"
   path               = "/instance_roles/"
@@ -45,7 +45,7 @@ module "cloudwatch_logging" {
 */
 
 module "lambda_alerttrace" {
-  source = "git@github.com:myhanseencloud/terraform_modules.git//lambda?ref=master"
+  source = "git@github.com:MyDevopsWorkspace/terramodules.git//lambda?ref=master"
   create_function = true
   payload_filename = "${var.payload_filename}.zip"
   function_name    = var.function_name
@@ -65,7 +65,7 @@ module "lambda_alerttrace" {
 }
 
 module "sns_lambda_topic" {
-  source = "git@github.com:myhanseencloud/terraform_modules.git//sns?ref=master"
+  source = "git@github.com:MyDevopsWorkspace/terramodules.git//sns?ref=master"
   name = var.sns_name
   tags= merge(tomap(local.common_tags),{Name="${var.function_name}_role"},{type = "SNS"})
   subscriptions = [
